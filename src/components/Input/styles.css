@@ -1,0 +1,17 @@
+.input {
+  margin: 10px;
+}
+
+.input input {
+  width: 100%;
+  max-width: 400px;
+  height: 50px;
+  border: 1px solid rgb(218, 218, 218);
+  border-radius: 2px;
+  color: #adadad;
+}
+
+.input input[value] {
+  padding-left: 10px;
+  color: #757575;
+}

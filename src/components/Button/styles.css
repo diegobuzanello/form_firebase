@@ -1,0 +1,21 @@
+.button {
+  margin: 10px;
+  text-align: center;
+}
+
+.button button {
+  width: 100%;
+  max-width: 400px;
+  height: 50px;
+  background-color: #f49a40;
+  color: white;
+  font-weight: 600;
+  border: none;
+}
+
+.button button.secondary {
+  background-color: transparent;
+  color: #f49a40;
+  text-decoration: underline;
+  text-align: center;
+}

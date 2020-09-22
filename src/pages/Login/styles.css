@@ -1,0 +1,41 @@
+form {
+  margin: 10px;
+  text-align: center;
+}
+.header {
+  margin: 10px;
+}
+h1.title {
+  margin: 20px auto 5px auto;
+  max-width: 400px;
+  font-size: 16pt;
+  text-align: left;
+  font-weight: 600;
+  line-height: 20pt;
+}
+p.subtitle {
+  margin: 5px auto;
+  max-width: 400px;
+  font-size: 14pt;
+  text-align: left;
+  font-weight: 500;
+  line-height: 20pt;
+}
+
+.secondary {
+  text-align: center;
+}
+
+.about {
+  margin: 10px auto;
+  border-top: 1px solid rgb(208, 208, 208);
+  border-bottom: 1px solid rgb(208, 208, 208);
+  padding-top: 20px;
+  padding-bottom: 20px;
+  max-width: 400px;
+  font-size: 13pt;
+  text-align: center;
+  font-weight: 400;
+  line-height: 20pt;
+  color: gray;
+}
