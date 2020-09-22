@@ -2,7 +2,7 @@ Fluxo de autenticação e adição de dados usando React e Firebase.
 
 ## Sobre
 
-Criado para reforçar alguns conceitos do React ([https://reactjs.org/docs/context.html](Context) e [https://reactjs.org/docs/hooks-intro.html](Hooks)) e entender as funcionalidades do Firebase. 
+Criado para reforçar alguns conceitos do React ([Context](https://reactjs.org/docs/context.html) e [Hooks](https://reactjs.org/docs/hooks-intro.html)) e entender as funcionalidades do Firebase. 
 
 ## Iniciar
 
@@ -17,4 +17,4 @@ Depois instale as dependências do projeto.<br />
 ### `npm start`
 E inicie local (abra [http://localhost:3000](http://localhost:3000)) para ver no navegador.
 
-Algumas configurações extras serão necessárias, como as chaves de API do firebase, recomendo seguir essa [https://firebase.google.com/docs/web/setup?hl=pt-br](documentação).
+Algumas configurações extras serão necessárias, como as chaves de API do firebase, recomendo seguir essa [documentação](https://firebase.google.com/docs/web/setup?hl=pt-br).
