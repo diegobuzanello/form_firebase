@@ -4,6 +4,8 @@ Fluxo de autenticação e adição de dados usando React e Firebase.
 
 Criado para reforçar alguns conceitos do React ([Context](https://reactjs.org/docs/context.html) e [Hooks](https://reactjs.org/docs/hooks-intro.html)) e entender as funcionalidades do Firebase. 
 
+[Link do projeto no Firebase](https://my-react-form-67905.web.app/)
+
 ## Iniciar
 
 Para rodar o projeto local é necessário ter o [Node](https://nodejs.org/en/) e o [Git](https://git-scm.com/downloads) instalados.
