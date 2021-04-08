@@ -1,6 +1,6 @@
-import firebase from "firebase/app";
-import "firebase/auth";
-import "firebase/database";
+import firebase from 'firebase/app';
+import 'firebase/auth';
+import 'firebase/database';
 
 const config = {
   apiKey: process.env.REACT_APP_DEV_API_KEY,
@@ -29,26 +29,24 @@ const firebaseService = {
         database
           .ref(`users/${userCredential.user?.uid}`)
           .set({
-            name: "",
-            gender: "",
-            age: "",
-            phone: "",
-            picture: "",
+            name: '',
+            gender: '',
+            age: '',
+            phone: '',
+            picture: '',
             email: userCredential.user?.email,
             uid: userCredential.user?.uid,
           })
-          .then((success) => {
-            console.log(success);
-          });
+          .then(() => {});
       });
   },
   logout() {
     return auth
       .signOut()
-      .then(function () {
+      .then(() => {
         // Sign-out successful.
       })
-      .catch(function (error) {
+      .catch(() => {
         // An error happened.
       });
   },
@@ -57,36 +55,31 @@ const firebaseService = {
   },
 };
 
-export const generateUserDocument = async (user, additionalData) => {
-  if (!user) return;
-
-  const userRef = database.ref(`users/${user.uid}`);
-  const snapshot = await userRef.on("value", function (snapshot) {
-    console.log(snapshot.val());
-  });
-
-  console.log(userRef, "snapshot: ", snapshot);
-
-  return getUserDocument(user.uid);
-};
-
 const getUserDocument = async (uid) => {
   if (!uid) return null;
   try {
     const userDocument = await database
       .ref(`users/${uid}`)
-      .on("value", function (snapshot) {
+      .on('value', (snapshot) => {
         snapshot.val();
       });
 
-    console.log(userDocument);
     return {
       uid,
       ...userDocument,
     };
   } catch (error) {
-    console.error("Error fetching user", error);
+    return error;
   }
+};
+
+export const generateUserDocument = (user: any) => {
+  if (!user) return;
+
+  const userRef = database.ref(`users/${user.uid}`);
+  userRef.on('value', () => {});
+
+  getUserDocument(user.uid);
 };
 
 export default firebaseService;

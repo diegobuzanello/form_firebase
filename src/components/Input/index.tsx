@@ -1,19 +1,20 @@
-import React, { InputHTMLAttributes } from "react";
-import "./styles.css";
+import React, { InputHTMLAttributes } from 'react';
+import './styles.css';
 
 interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
   name?: string;
-  label?: string;
   type?: string;
 }
 
-const Input: React.FC<InputProps> = ({ label, name, type, ...rest }) => {
-  return (
-    <div className="input">
-      {/* <label>{label}</label> */}
-      <input type={type} id={name} {...rest} />
-    </div>
-  );
+const Input = ({ name, type, ...rest }: InputProps) => {
+  <div className='input'>
+    <input type={type} id={name} {...rest} />
+  </div>;
+};
+
+Input.defaultProps = {
+  name: undefined,
+  type: undefined,
 };
 
 export default Input;

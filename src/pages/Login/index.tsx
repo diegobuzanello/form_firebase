@@ -1,14 +1,14 @@
-import React, { useState, FormEvent } from "react";
-import Input from "../../components/Input";
-import Button from "../../components/Button";
-import { useHistory } from "react-router-dom";
-import firebase from "../../services/firebase";
-import "./styles.css";
+import React, { useState, FormEvent } from 'react';
+import Input from '../../components/Input';
+import Button from '../../components/Button';
+import { useHistory } from 'react-router-dom';
+import firebase from '../../services/firebase';
+import './styles.css';
 
 function LoginPage() {
   const history = useHistory();
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
 
   function handleLoginUser(e: FormEvent) {
     e.preventDefault();
@@ -18,14 +18,14 @@ function LoginPage() {
       .then((data) => {
         console.log(data);
 
-        history.push("/user");
+        history.push('/user');
       })
       .catch(function (error) {});
     console.log(email, password);
   }
 
   function goToSignUp() {
-    history.push("/create-user");
+    history.push('/create-user');
   }
 
   return (
@@ -40,6 +40,7 @@ function LoginPage() {
           name="email"
           label="Email"
           placeholder="E-mail"
+          autoComplete="username"
           value={email}
           onChange={(e) => {
             setEmail(e.target.value);
@@ -49,6 +50,7 @@ function LoginPage() {
           name="senha"
           label="Senha"
           type="password"
+          autoComplete="current-password"
           placeholder="Password"
           value={password}
           onChange={(e) => {
@@ -56,7 +58,9 @@ function LoginPage() {
           }}
         />
 
-        <Button type="submit">Login</Button>
+        <Button type="submit" disabled={!email || !password}>
+          Login
+        </Button>
       </form>
       <Button className="secondary" onClick={goToSignUp}>
         Criar Conta

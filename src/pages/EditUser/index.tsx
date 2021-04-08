@@ -1,27 +1,27 @@
-import React, { useState, FormEvent, useEffect } from "react";
-import { useHistory } from "react-router-dom";
-import Input from "../../components/Input";
-import firebaseService, { database } from "../../services/firebase";
-import "firebase/storage";
-import Button from "../../components/Button";
-import "./styles.css";
-require("firebase/database");
-var firebase = require("firebase/app");
-require("firebase/auth");
+import React, { useState, FormEvent, useEffect } from 'react';
+import { useHistory } from 'react-router-dom';
+import Input from '../../components/Input';
+import firebaseService, { database } from '../../services/firebase';
+import 'firebase/storage';
+import Button from '../../components/Button';
+import './styles.css';
+require('firebase/database');
+var firebase = require('firebase/app');
+require('firebase/auth');
 
 const EditPage = () => {
   let history = useHistory();
-  const [name, setName] = useState("");
-  const [gender, setGender] = useState("");
-  const [age, setAge] = useState("");
-  const [phone, setPhone] = useState("");
-  const [picture, setPicture] = useState("");
+  const [name, setName] = useState('');
+  const [gender, setGender] = useState('');
+  const [age, setAge] = useState('');
+  const [phone, setPhone] = useState('');
+  const [picture, setPicture] = useState('');
 
   const userId = firebaseService.getUserId();
 
   function handleUserData(e: FormEvent) {
     e.preventDefault();
-    console.log("foi", userId?.uid, name, phone, gender, age, picture);
+    console.log('foi', userId?.uid, name, phone, gender, age, picture);
 
     const userData = {
       name: name,
@@ -35,23 +35,24 @@ const EditPage = () => {
       .ref(`users/${userId?.uid}`)
       .update(userData)
       .then((data) => {
-        history.push("/user");
+        history.push('/user');
       });
   }
 
   useEffect(() => {
-    function getUserInfo() {
-      database.ref(`users/${userId?.uid}`).on("value", (snapshot) => {
-        const user = snapshot.val();
-        setName(user?.name);
-        setPhone(user?.phone);
-        setGender(user?.gender);
-        setAge(user?.age);
-        setPicture(user?.picture);
-      });
-    }
     getUserInfo();
   }, []);
+
+  function getUserInfo() {
+    database.ref(`users/${userId?.uid}`).on('value', (snapshot) => {
+      const user = snapshot.val();
+      setName(user?.name);
+      setPhone(user?.phone);
+      setGender(user?.gender);
+      setAge(user?.age);
+      setPicture(user?.picture);
+    });
+  }
 
   function handlePreview(e) {
     e.preventDefault();
@@ -66,18 +67,18 @@ const EditPage = () => {
     );
 
     imagesRef.put(file).on(
-      "state_changed",
+      'state_changed',
       null,
       function (error) {
         // [START onfailure]
-        console.error("Upload failed:", error);
+        console.error('Upload failed:', error);
         // [END onfailure]
       },
       function () {
         console.log(
-          "Uploaded",
+          'Uploaded',
           imagesRef.put(file).snapshot.totalBytes,
-          "bytes."
+          'bytes.'
         );
         console.log(
           imagesRef.getDownloadURL().then((result) => {
@@ -90,7 +91,7 @@ const EditPage = () => {
   }
 
   function goToUser() {
-    history.push("/user");
+    history.push('/user');
   }
   return (
     <>
